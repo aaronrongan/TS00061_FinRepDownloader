@@ -13,7 +13,10 @@ send_headers = {
                 'Sec-Fetch-Site':'same-origin',
                 'Host':'www.lixinger.com',
                 'Cache-Control':'max-age=0',
-                'Cookie':'Hm_lvt_ec0ee7e5c8bed46d4fdf3f338afc08f5=1569491782; Hm_lpvt_ec0ee7e5c8bed46d4fdf3f338afc08f5=1569491782; jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Yjc5Mjc5YmQ0M2I5MjEwMjAxNDJhZmUiLCJpYXQiOjE1Njk0OTE3OTgsImV4cCI6MTU3MDA5NjU5OH0.F8KV_PGvBYg4bpny3x5_a_J5UJhYYjdBObwTgfhYbZM',
+                # 'Cookie':'Hm_lvt_ec0ee7e5c8bed46d4fdf3f338afc08f5=1569491782; Hm_lpvt_ec0ee7e5c8bed46d4fdf3f338afc08f5=1569491782; jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Yjc5Mjc5YmQ0M2I5MjEwMjAxNDJhZmUiLCJpYXQiOjE1Njk0OTE3OTgsImV4cCI6MTU3MDA5NjU5OH0.F8KV_PGvBYg4bpny3x5_a_J5UJhYYjdBObwTgfhYbZM',
+                # 'Cookie':,
+
+                'ETag': 'W / "9d6-ur/uBzgatny2qgtgjuC5lXpxU4w"',
                 'Sec-Fetch-Mode':'navigate',
                 'Sec-Fetch-User':'?1',
                 'Upgrade-Insecure-Requests':'1',
