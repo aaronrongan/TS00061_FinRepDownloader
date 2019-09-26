@@ -9,7 +9,7 @@ socket.setdefaulttimeout(10)
 
 # headers1={"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:55.0) Gecko/20100101 Firefox/55.0"}
 send_headers = {
-                # 'Accept-Encoding':'gzip, deflate, br',
+                'Accept-Encoding':'gzip, deflate, br',
                 'Sec-Fetch-Site':'same-origin',
                 'Host':'www.lixinger.com',
                 'Cache-Control':'max-age=0',
@@ -24,28 +24,29 @@ send_headers = {
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
                 "Accept-Language": "zh-CN,zh;q=0.9"    }
 
-# send_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+send_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
 
+# url='http://vip.stock.finance.sina.com.cn/corp/go.php/vCB_Bulletin/stockid/002271/page_type/ndbg.phtml'
 url='https://www.lixinger.com/analytics/company/sz/300383/detail/announcement?announcement-type=fs&page-index=0'
 # url='https://www.lixinger.com/profile/center/home/all'
 # url='http://blog.csdn.net/beliefer/article/details/51251757'
-# r = requests.get(url, headers=send_headers)
+r = requests.get(url, headers=send_headers)
+# r.encoding='gbk'
 # r.close()
 
-req = request.Request(url, headers = send_headers)
-text = request.urlopen(req).read().decode()
-print(text)
+# req = request.Request(url, headers = send_headers)
+# text = request.urlopen(req).read().decode()
+# print(text)
 
-# print(r.text)
+print(r.text)
 # source=requests.get('https://www.lixinger.com/analytics/company/sz/300383/detail/announcement?announcement-type=fs&page-index=0').text
 
 # source=requests.get('http://vip.stock.finance.sina.com.cn/corp/go.php/vCB_Bulletin/stockid/002271/page_type/ndbg.phtml').text
 
-
 # soup=BeautifulSoup(r.text,'lxml')
 
-# print(soup)
-
+# print(soup.prettify())
+# print(soup.find('div',class_='tui').h2)
 
 
 
