@@ -12,7 +12,7 @@ with open('StockList.csv',newline='') as csv_file:
         # print(row['code'],row['name'])
         codelist.append(row['code'])
 
-# print(codelist)
+ # print(codelist)
     # codelist=csv.reader(csv_file,delimiter=',')
     # for row in codelist:
     #         print(row.split(' '))
