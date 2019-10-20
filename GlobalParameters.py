@@ -33,9 +33,10 @@ url_zhaogu_2='/page_type/zgsmsyxs.phtml'
 
 #下载文件目录
 global downloadpath1,downloadpath2
-downloadpath1='I://MyMobileBooks_800_FinRep//'
-downloadpath2='C:/Users/aaron/Documents/MyMobileBooks_800_FinRep/'
-
+# downloadpath1='I://MyMobileBooks_800_FinRep//'
+# downloadpath1='C:/Users/aaron/Documents/MyMobileBooks_800_FinRep/'
+downloadpath1='C:/Users/aaron/Documents/'
+#
 #下载文件命名规格
 global filename_ar,filename_q1,filename_q2,filename_q3,filename_zhaogu
 filename_ar_sample='002271_2018_年度报告'
