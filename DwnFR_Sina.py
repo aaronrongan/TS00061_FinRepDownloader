@@ -1,5 +1,9 @@
-# 读取html文件
-# 从新浪财经获取PDF
+#目的:从新浪财经获取PDF
+
+#191026 更新
+#使用命令行独立执行方式，用户输入年份、代码，已有的重复文件不要覆盖, 打包成一个独立文件ts0061
+
+
 import re
 import requests
 from bs4 import BeautifulSoup
@@ -14,13 +18,14 @@ from GlobalParameters import filename_ar, filename_q2, filename_q1, filename_q3,
     url_q3_1, url_q3_2, \
     url_zhaogu_1, url_zhaogu_2
 
+#范例代码
+# codenumber = '002271'
+# downloadtype = 4  # 4-年报；1-1季报；2-中报；3-3季报；5-招股; 0-4个季度报表全部下载
+# downloadflag = True  # True为实际下载，False为不下载
+# debugflag = False  # True为输出调试信息，False为不输出
+#yearnumber=0 #
 
 def DownloadFR(downloadtype,yeartype,codenumber,downloadflag,debugflag):
-    # codenumber = '002271'
-    # downloadtype = 4  # 4-年报；1-1季报；2-中报；3-3季报；5-招股; 0-4个季度报表全部下载
-    # downloadflag = True  # True为实际下载，False为不下载
-    # debugflag = False  # True为输出调试信息，False为不输出
-    #yearnumber=0 #
 
     headers1 = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:55.0) Gecko/20100101 Firefox/55.0"}
     send_headers = {
@@ -44,6 +49,9 @@ def DownloadFR(downloadtype,yeartype,codenumber,downloadflag,debugflag):
     elif downloadtype == 5:
         realurl = url_zhaogu_1 + codenumber + url_zhaogu_2
         filetypestr = filename_zhaogu
+    else:
+        realurl = url_ar_1 + codenumber + url_ar_2
+        filetypestr = filename_ar
 
     if debugflag == True:
         print(realurl)
@@ -60,6 +68,7 @@ def DownloadFR(downloadtype,yeartype,codenumber,downloadflag,debugflag):
     # 关键代码
     datelist = soup.find('div', class_="datelist").find_all('a')  # 不是用find_all("href")
 
+    global yearnumber
     # ########################读取代码和名称的字典文件
     with open('StockList.csv', newline='') as csv_file:
         csv_reader = csv.DictReader(csv_file, fieldnames=['code', 'name'])
@@ -120,25 +129,5 @@ def DownloadFR(downloadtype,yeartype,codenumber,downloadflag,debugflag):
                     print(filepathname)
 
                 if downloadflag == True:
+                    #此处条件夹文件
                     urllib.request.urlretrieve(PDFAddress, filename=filepathname)
-
-# codenumber = '002271'
-    # downloadtype = 4  # 4-年报；1-1季报；2-中报；3-3季报；5-招股; 0-4个季度报表全部下载
-    # downloadflag = True  # True为实际下载，False为不下载
-    # debugflag = False  # True为输出调试信息，False为不输出
-    #yearnumber='0' # 不为0则为具体某年要求
-
-codelist=[]
-with open('StockList.csv',newline='') as csv_file:
-# with open('StockList.csv',newline='', encoding = 'UTF-8') as csv_file:
-    csv_reader = csv.DictReader(csv_file)
-    for row in csv_reader:
-        # print(row['code'],row['name'])
-        codelist.append(row['code'])
-
-        for each in range(1,5):
-            try:
-                DownloadFR(each,yeartype='0',codenumber=row['code'],downloadflag=True,debugflag=True)
-            except:
-                print('error')
-
