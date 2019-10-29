@@ -33,9 +33,9 @@ url_zhaogu_2='/page_type/zgsmsyxs.phtml'
 
 #下载文件目录
 global downloadpath1,downloadpath2
-# downloadpath1='I://MyMobileBooks_800_FinRep//'
+downloadpath1='I://MyMobileBooks_800_FinRep//' #MyWorkStation
 # downloadpath1='C:/Users/aaron/Documents/MyMobileBooks_800_FinRep/'
-downloadpath1='C:/Users/aaron/Documents/'
+#downloadpath1='C://Users//aaron//Documents//' #(PLRWorkStatiun)
 #
 #下载文件命名规格
 global filename_ar,filename_q1,filename_q2,filename_q3,filename_zhaogu
@@ -56,6 +56,7 @@ filename_zhaogu='_招股说明书'
 
 
 #错误提示
-global msg1, msg2
+global msg1, msg2,msg3
 msg1='没有此时的报表，无法下载'
 msg2='文件已存在，是否要覆盖？'
+msg3="未找到该代码"
